@@ -1,0 +1,28 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+int maximum_toys(int cost[], int N, int K) 
+{ 
+    int count = 0, sum = 0; 
+    sort(cost, cost + N); 
+    for (int i = 0; i < N; i++) { 
+        if (sum +cost[i] <= K&&cost[i]!=0)  
+        { 
+            sum = sum + cost[i]; 
+            count++; 
+        } 
+    } 
+    return count; 
+} 
+int main() 
+{ 
+    int K,no ; 
+    cin>>K;
+    cout<<"Total number of toys:";
+    cin>>no;
+    int cost[no];
+    for(int i=0;i<no;i++)
+    cin>>cost[i];
+    int N = sizeof(cost) / sizeof(cost[0]); 
+    cout << "Maximum number of toys that can be bought="<<maximum_toys(cost, N, K) << endl; 
+    return 0;
+}
